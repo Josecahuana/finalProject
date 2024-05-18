@@ -1,0 +1,45 @@
+.section{
+    background-color: red;
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    margin-bottom: 70px;
+    top: 0;
+}
+
+.sliders{
+    margin-top: 70px;
+    position: relative;
+}
+
+.products__main{
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    background-color: red;
+    display: flex;
+
+    .product__options{
+        width: 30%;
+    }
+
+    .product__list{
+        width: 70%;
+    }
+}
+
+
+.product{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    color: white;
+
+    .product__data{
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
