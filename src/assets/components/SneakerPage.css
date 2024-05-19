@@ -1,12 +1,86 @@
+body{
+    background-color: #EEEEEE;
+}
+.sneaker__div, .sneaker__img,.data__marca{
+    display: flex;
+}
+
 .sneaker__div{
     width: 80%;
+    height: 600px;
     margin: 0 auto;
-    background-color: black;
-    color: white;
+    padding: 20px 20px;
+    background-color: #FFFFFF;
+    color:  #000;
 
-    .section__img{
-        width: 50%;
-        height: 300px;
-        background-color: green;
+}
+
+.sneaker__img{
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        width: 80%;
+    }
+}
+
+.sneaker__data{
+    width: 50%;
+}
+
+.data__marca{
+    justify-content: space-between;
+}
+
+.info__grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.sizes__header, .sizes__div, .sizes__button{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.sizes__div{
+    font-size: 13px;
+    div{
+        display: flex;
+    }
+}
+
+.sizes__button{
+    flex-wrap: wrap;
+    gap: 10px;
+
+    button{
+        padding: 5px 10px;
+        background-color: #F9F9F9;
+        border: 1px solid #FFDFDF;
+        border-radius: 5px;
+        color: #888888;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+}
+
+.sizes__shipment{
+    display: flex;
+    height: 120px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #57EA81;
+
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 120px;
     }
 }
