@@ -5,5 +5,5 @@ Ecommerce Product shoes
 Group:
 | Colaborations | Name |
 | --- | --- |
-| Luis | Jose Luis Cahuan Geronimo |
+| Luis | Jose Luis Cahuana Geronimo |
 | Rocio | Ponce Guerra Rocio del Valle |
