@@ -19,8 +19,8 @@
     background-color: red;
     display: flex;
 
-    .product__options{
-        width: 30%;
+    .products__options{
+        width: 20%;
     }
 
     .product__list{
@@ -31,7 +31,7 @@
 
 .product{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 5px;
     color: white;
 
