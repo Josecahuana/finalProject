@@ -4,6 +4,7 @@ import sneakers from './assets/components/data'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import { SneakerPage } from './assets/components/SneakerPage'
 
+
 import './App.css'
 
 export const App = () => {
@@ -102,7 +103,7 @@ export const App = () => {
           </section>
         </main>
         <Routes>
-          <Route path='/sneaker/:id' element={<SneakerPage />} />
+          <Route path='/sneaker/:id' element={<SneakerPage/>} />
         </Routes>
       </>
     </Router>
