@@ -1,25 +1,26 @@
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './SneakerPage.css'
 
 export const SneakerPage = ({ data }) => {
+
+    let params = useParams();
     return (
         <>
-            <Link>
+
                 <section className="snaker__img">
                     <img src="" alt="" />
                     <div>
-
+                        {params.id}
                     </div>
                 </section>
                 <section>
                     <div>
-                        <p>{marca}</p>
-                        <p>Codigo:{Math.radom}</p>
+                        <p></p>
+                        <p>Codigo</p>
                     </div>
-                    <h3>{nombre}</h3>
+                    <h3></h3>
 
                 </section>
-            </Link>
         </>
     )
 }
