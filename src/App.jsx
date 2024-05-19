@@ -87,7 +87,7 @@ export const App = () => {
               {
                 sneakers.map((sneaker) => {
                   return (
-                    <div className='product__data' >
+                    <div key={sneaker.id} className='product__data' >
                       <Link to={`/sneaker/${sneaker.id}`}>
                         <p>{sneaker.marca} </p>
                         <p>{sneaker.nombre} </p>
