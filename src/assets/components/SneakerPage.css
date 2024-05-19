@@ -1,7 +1,7 @@
 body{
     background-color: #EEEEEE;
 }
-.sneaker__div, .sneaker__img,.data__marca{
+.sneaker__div, .data__marca{
     display: flex;
 }
 
@@ -12,13 +12,16 @@ body{
     padding: 20px 20px;
     background-color: #FFFFFF;
     color:  #000;
-
+}
+.sneaker__img, .sizes__shipment, .shipment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sneaker__img{
     width: 50%;
-    justify-content: center;
-    align-items: center;
+
 
     img{
         width: 80%;
@@ -68,18 +71,12 @@ body{
 }
 
 .sizes__shipment{
-    display: flex;
     height: 120px;
     gap: 10px;
-    justify-content: center;
-    align-items: center;
     border: 1px solid #57EA81;
 
-    div{
-        display: flex;
+    .shipment{
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         text-align: center;
         width: 120px;
     }
