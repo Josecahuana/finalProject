@@ -41,6 +41,11 @@
 
 }
 
+.products__main-change{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
 
 .products__option-change{
     display: none;

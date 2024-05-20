@@ -64,7 +64,7 @@ export const App = () => {
           <a href="#">Home</a>
         </section>
 
-        <main className='products__main'>
+        <main className={ !view ? 'products__main' : 'products__main-change' }>
           <section className={!view ? 'products__options' : 'products__option-change'}>
             <div>
               <h2>Productos</h2>
