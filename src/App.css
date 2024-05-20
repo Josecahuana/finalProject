@@ -40,3 +40,8 @@
     }
 
 }
+
+
+.products__option-change{
+    display: none;
+}

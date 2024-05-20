@@ -1,16 +1,23 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import sneakers from './data.js'
 import zapatilla from '../img/zapatilla.jpg'
 import './SneakerPage.css'
 
-export const SneakerPage = () => {
+export const SneakerPage = ({ handleChangeShow }) => {
     const { id } = useParams();
 
     const newData = sneakers.find(sneaker => sneaker.id === +id)
 
+    const handleClick = (value) => {
+        handleChangeShow(value)
+    }
+
     return (
         <>
             <div className='sneaker__div'>
+                <Link to={'/'}>
+                    <button type='button' onClick={() => handleClick(false)}>Volver</button>
+                </Link>
                 <section className="sneaker__img">
                     <img className="sneaker__shoes" src={zapatilla} alt="" />
 

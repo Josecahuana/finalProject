@@ -3,11 +3,18 @@ import project from './assets/img/project.jpeg'
 import sneakers from './assets/components/data'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import { SneakerPage } from './assets/components/SneakerPage'
-
+import { useState } from 'react'
 
 import './App.css'
 
 export const App = () => {
+
+  const [view, setView] = useState(false);
+
+  const handleChangeShow = (value) => {
+    setView(value);
+  }
+
   return (
     <Router>
       <>
@@ -58,7 +65,7 @@ export const App = () => {
         </section>
 
         <main className='products__main'>
-          <section className='products__options'>
+          <section className={!view ? 'products__options' : 'products__option-change'}>
             <div>
               <h2>Productos</h2>
               <b>Zapatillas</b>
@@ -84,27 +91,28 @@ export const App = () => {
                 </div>
               </div>
             </header>
-            <section className='product'>
+            <section className={ !view ? 'product' : 'Change' }>
               {
-                sneakers.map((sneaker) => {
-                  return (
-                    <div key={sneaker.id} className='product__data' >
-                      <Link to={`/sneaker/${sneaker.id}`}>
-                        <p>{sneaker.marca} </p>
-                        <p>{sneaker.nombre} </p>
-                        <p>{sneaker.empresa} </p>
-                        <p>{sneaker.precio}</p>
+                !view ?
+                  sneakers.map((sneaker) => {
+                    return (
+                      <Link to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)}>
+                        <div key={sneaker.id} className='product__data'  >
+                          <p>{sneaker.marca} </p>
+                          <p>{sneaker.nombre} </p>
+                          <p>{sneaker.empresa} </p>
+                          <p>{sneaker.precio}</p>
+                        </div>
                       </Link>
-                    </div>
-                  )
-                })
+                    )
+                  }) : <Routes>
+                    <Route path='/sneaker/:id' element={<SneakerPage handleChangeShow={handleChangeShow} />} />
+                  </Routes>
               }
             </section>
           </section>
         </main>
-        <Routes>
-          <Route path='/sneaker/:id' element={<SneakerPage/>} />
-        </Routes>
+
       </>
     </Router>
   )
