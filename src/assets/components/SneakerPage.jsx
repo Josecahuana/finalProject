@@ -33,7 +33,8 @@ export const SneakerPage = ({ handleChangeShow }) => {
                     <section className='info__grid'>
                         <div className='sizes'>
                             <header className='sizes__header'>
-                                <p>Vendido por <a href="#">{newData.empresa}</a> <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z" /></svg></span> </p>
+                                <p>Vendido por <a href="#">{newData.empresa}</a>  </p>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z" /></svg></span>
                             </header>
                             <div className='sizes__div'>
                                 <b>Selecciona Talla</b>
@@ -41,7 +42,7 @@ export const SneakerPage = ({ handleChangeShow }) => {
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#999999"><path d="M160-240q-33 0-56.5-23.5T80-320v-320q0-33 23.5-56.5T160-720h640q33 0 56.5 23.5T880-640v320q0 33-23.5 56.5T800-240H160Zm0-80h640v-320H680v160h-80v-160h-80v160h-80v-160h-80v160h-80v-160H160v320Zm120-160h80-80Zm160 0h80-80Zm160 0h80-80Zm-120 0Z" /></svg>
                                     </span>
-                                    <p>Tabla de tallas </p>
+                                    <a href='#'>Tabla de tallas </a>
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" /></svg>
                                     </span>
@@ -72,22 +73,24 @@ export const SneakerPage = ({ handleChangeShow }) => {
                             </div>
                         </div>
                         <div className='price'>
-                            <header>
-                                <div>
+                            <header className='descount'>
+                                <div className='descount__div'>
                                     <p>S/ {newData.precio}</p>
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343"><path d="M718-313 604-426l57-56 57 56 141-141 57 56-198 198ZM440-501Zm0 381L313-234q-72-65-123.5-116t-85-96q-33.5-45-49-87T40-621q0-94 63-156.5T260-840q52 0 99 22t81 62q34-40 81-62t99-22q81 0 136 45.5T831-680h-85q-18-40-53-60t-73-20q-51 0-88 27.5T463-660h-46q-31-45-70.5-72.5T260-760q-57 0-98.5 39.5T120-621q0 33 14 67t50 78.5q36 44.5 98 104T440-228q26-23 61-53t56-50l9 9 19.5 19.5L605-283l9 9q-22 20-56 49.5T498-172l-58 52Z" /></svg>
                                     </span>
                                 </div>
-                                <p>S/. 99</p>
+                                <p className='descount__p'>S/ {+newData.precio + 100}</p>
                             </header>
-                            <div>
-                                <button type='button'> - </button>
-                                <p>1</p>
-                                <button type='button'> +</button>
+                            <div className='amount'>
+                                <div>
+                                    <button type='button'> - </button>
+                                    <p>1</p>
+                                    <button type='button'> +</button>
+                                </div>
                                 <span>Máximo 10 unidades</span>
                             </div>
-                            <button type='button'>Elige tus opciones</button>
+                            <button className='button__options' type='button'>Elige tus opciones</button>
                         </div>
                     </section>
                 </section>
