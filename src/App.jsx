@@ -96,12 +96,13 @@ export const App = () => {
                 !view ?
                   sneakers.map((sneaker) => {
                     return (
-                      <Link to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)}>
+                      <Link to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)} style={{textDecoration: 'none'}}>
                         <div key={sneaker.id} className='product__data'  >
-                          <p>{sneaker.marca} </p>
-                          <p>{sneaker.nombre} </p>
+                          <img src={ sneaker.img !== 'undefined' ? sneaker.img : '' } alt={`image of ${sneakers.img}`} />
+                          <header>{sneaker.marca} </header>
+                          <h4>{sneaker.nombre} </h4>
                           <p>{sneaker.empresa} </p>
-                          <p>{sneaker.precio}</p>
+                          <span>{sneaker.precio}</span>
                         </div>
                       </Link>
                     )
