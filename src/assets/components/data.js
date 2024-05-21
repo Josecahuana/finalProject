@@ -1,14 +1,28 @@
+import AirMax270 from './dataImg/AirMax270.jpg'
+import ChuckTaylorAllStar from './dataImg/ChuckTaylorAllStar.jpg'
+import EndorphinSpeed from './dataImg/EndorphinSpeed.jpeg'
+import FreshFoam1080v1 from './dataImg/FreshFoam1080v1.jpg'
+import GelKayano27 from './dataImg/GelKayano27.jpeg'
+import HOVRPhantom from './dataImg/HOVRPhantom.jpg'
+import NanoX1 from './dataImg/NanoX1.jpeg'
+import OldSkool from './dataImg/OldSkool.jpeg'
+import RSXpuma from './dataImg/RSXpuma.jpg'
+import UltraBoost from './dataImg/UltraBoost.jpg'
+
+
+
+
 const sneakers = [
-  { id: 1, marca: 'Nike', nombre: 'Air Max 270', empresa: 'Nike Inc.', precio: 150, descuento: 10 },
-  { id: 2, marca: 'Adidas', nombre: 'Ultra Boost', empresa: 'Adidas AG', precio: 180 },
-  { id: 3, marca: 'Puma', nombre: 'RS-X', empresa: 'Puma SE', precio: 120, descuento: 15 },
-  { id: 4, marca: 'Reebok', nombre: 'Nano X1', empresa: 'Reebok International', precio: 130 },
-  { id: 5, marca: 'Asics', nombre: 'Gel-Kayano 27', empresa: 'Asics Corporation', precio: 160, descuento: 20 },
-  { id: 6, marca: 'New Balance', nombre: 'Fresh Foam 1080v10', empresa: 'New Balance', precio: 150 },
-  { id: 7, marca: 'Under Armour', nombre: 'HOVR Phantom', empresa: 'Under Armour', precio: 140, descuento: 25 },
-  { id: 8, marca: 'Converse', nombre: 'Chuck Taylor All Star', empresa: 'Nike Inc.', precio: 60 },
-  { id: 9, marca: 'Vans', nombre: 'Old Skool', empresa: 'VF Corporation', precio: 70, descuento: 5 },
-  { id: 10, marca: 'Saucony', nombre: 'Endorphin Speed', empresa: 'Saucony', precio: 150 },
+  { id: 1, marca: 'Nike', nombre: 'Air Max 270', empresa: 'Nike Inc.', precio: 150, descuento: 10, img: AirMax270 },
+  { id: 2, marca: 'Adidas', nombre: 'Ultra Boost', empresa: 'Adidas AG', precio: 180, img: UltraBoost },
+  { id: 3, marca: 'Puma', nombre: 'RS-X', empresa: 'Puma SE', precio: 120, descuento: 15, img: RSXpuma },
+  { id: 4, marca: 'Reebok', nombre: 'Nano X1', empresa: 'Reebok International', precio: 130, img: NanoX1 },
+  { id: 5, marca: 'Asics', nombre: 'Gel-Kayano 27', empresa: 'Asics Corporation', precio: 160, descuento: 20, img: GelKayano27 },
+  { id: 6, marca: 'New Balance', nombre: 'Fresh Foam 1080v10', empresa: 'New Balance', precio: 150, img: FreshFoam1080v1 },
+  { id: 7, marca: 'Under Armour', nombre: 'HOVR Phantom', empresa: 'Under Armour', precio: 140, descuento: 25, img: HOVRPhantom },
+  { id: 8, marca: 'Converse', nombre: 'Chuck Taylor All Star', empresa: 'Nike Inc.', precio: 60, img: ChuckTaylorAllStar },
+  { id: 9, marca: 'Vans', nombre: 'Old Skool', empresa: 'VF Corporation', precio: 70, descuento: 5, img: OldSkool },
+  { id: 10, marca: 'Saucony', nombre: 'Endorphin Speed', empresa: 'Saucony', precio: 150, img: EndorphinSpeed },
   { id: 11, marca: 'Mizuno', nombre: 'Wave Rider 24', empresa: 'Mizuno Corporation', precio: 140 },
   { id: 12, marca: 'Brooks', nombre: 'Ghost 13', empresa: 'Brooks Sports, Inc.', precio: 130, descuento: 10 },
   { id: 13, marca: 'Fila', nombre: 'Disruptor II', empresa: 'Fila Korea', precio: 80 },

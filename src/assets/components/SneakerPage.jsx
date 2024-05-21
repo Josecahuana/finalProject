@@ -1,9 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
-import sneakers from './data.js'
-import zapatilla from '../img/zapatilla.jpg'
 import './SneakerPage.css'
 
-export const SneakerPage = ({ handleChangeShow }) => {
+export const SneakerPage = ({ handleChangeShow, sneakers }) => {
     const { id } = useParams();
 
     const newData = sneakers.find(sneaker => sneaker.id === +id)
@@ -19,7 +17,7 @@ export const SneakerPage = ({ handleChangeShow }) => {
                     <button type='button' onClick={() => handleClick(false)}>Volver</button>
                 </Link>
                 <section className="sneaker__img">
-                    <img className="sneaker__shoes" src={zapatilla} alt="" />
+                    <img className="sneaker__shoes" src={ newData.img !== 'undefined' ? newData.img : '' } alt="" />
 
                 </section>
                 <section className='sneaker__data'>

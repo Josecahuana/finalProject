@@ -106,7 +106,7 @@ export const App = () => {
                       </Link>
                     )
                   }) : <Routes>
-                    <Route path='/sneaker/:id' element={<SneakerPage handleChangeShow={handleChangeShow} />} />
+                    <Route path='/sneaker/:id' element={<SneakerPage handleChangeShow={handleChangeShow} sneakers={sneakers} />} />
                   </Routes>
               }
             </section>
