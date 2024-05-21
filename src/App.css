@@ -11,15 +11,14 @@
 .products__main{
     margin: 0 auto;
     width: 80%;
-    height: 100%;
-    background-color: red;
     display: flex;
+    justify-content: center;
 
     .products__options{
-        width: 20%;
+        width: 30%;
     }
 
-    .product__list{
+    .products__list{
         width: 70%;
     }
 }
@@ -28,18 +27,33 @@
 .product{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    gap: 5px;
+    gap: 10px;
     color: white;
+}
 
-    .product__data{
-        background-color: black;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+.product__data{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    font-size: 16px;
+    padding: 10px;
+    color: black;
+
+    img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
     }
 
+    header{
+        font-size: 13px;
+        text-transform: uppercase   ;
+    }
+
+
 }
+
 
 .products__main-change{
     width: 80%;
