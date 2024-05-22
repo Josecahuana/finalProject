@@ -7,11 +7,12 @@ import { SneakerPage } from './assets/components/SneakerPage'
 import { useState } from 'react'
 
 import './App.css'
+import { SearchProduct } from './assets/components/SearchProduct'
 
 export const App = () => {
 
   const [view, setView] = useState(false);
-  
+
   const handleChangeShow = (value) => {
     setView(value);
   }
@@ -65,7 +66,7 @@ export const App = () => {
           <a href="#">Home</a>
         </section>
 
-        <main className={ !view ? 'products__main' : 'products__main-change' }>
+        <main className={!view ? 'products__main' : 'products__main-change'}>
           <section className={!view ? 'products__options' : 'products__option-change'}>
             <div>
               <h2>Productos</h2>
@@ -75,12 +76,17 @@ export const App = () => {
               <p>Resultados</p>
             </div>
             <div>
-
+              <h4>Marcas</h4>
+              <input type="text" placeholder='Buscar' />
+              <div>
+                <SearchProduct sneakers={sneakers} />
+              </div>
             </div>
           </section>
           <section className='products__list'>
             <header >
               <div>
+
 
               </div>
               <div>
@@ -92,21 +98,21 @@ export const App = () => {
                 </div>
               </div>
             </header>
-            <section className={ !view ? 'product' : 'Change' }>
+            <section className={!view ? 'product' : 'Change'}>
               {
                 !view ?
                   sneakers.map((sneaker) => {
                     return (
-                      <Link key={sneaker.id} to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)} style={{textDecoration: 'none'}}>
-                        <div  className='product__data'  >
-                          <img src={ sneaker.img !== 'undefined' ? sneaker.img : '' } alt={`image of ${sneakers.img}`} />
+                      <Link key={sneaker.id} to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)} style={{ textDecoration: 'none' }}>
+                        <div className='product__data'  >
+                          <img src={sneaker.img !== 'undefined' ? sneaker.img : ''} alt={`image of ${sneakers.img}`} />
                           <header>{sneaker.marca} </header>
                           <h3>{sneaker.nombre} </h3>
                           <p><b>Por:</b> {sneaker.empresa} </p>
                           <span>S/ {sneaker.precio}</span>
-                          <button>Agregar al carrito</button>  
+                          <button>Agregar al carrito</button>
                         </div>
-                        
+
                       </Link>
                     )
                   }) : <Routes>
@@ -116,9 +122,9 @@ export const App = () => {
             </section>
           </section>
         </main>
-            <div>
-            <img src={imgNotFound} alt="" />
-            </div>
+        <div>
+          <img src={imgNotFound} alt="" />
+        </div>
       </>
     </Router>
   )
