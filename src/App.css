@@ -18,6 +18,8 @@
 
     .menu__option{
         width: 20%;
+        display: flex;
+        justify-content: center;
     }
 
     .menu__search{
@@ -37,8 +39,19 @@
         align-items: center;
         gap: 20px;
     }
+}
 
+.sesion__cart{
+    position: relative;
+    display: flex;
 
+    div{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        display: none;
+    }
 }
 
 .location {

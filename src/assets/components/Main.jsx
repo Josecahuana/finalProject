@@ -5,12 +5,16 @@ import imgNotFound from '../img/imgNotFound.svg'
 import { SneakerPage } from './SneakerPage'
 import { useState } from 'react'
 
-export const Main = () => {
+export const Main = ({ handleChangeCart }) => {
 
     const [view, setView] = useState(false);
 
     const handleChangeShow = (value) => {
-      setView(value);
+        setView(value);
+    }
+
+    const handleChangeSetCart = (value) => {
+        handleChangeCart(value);
     }
 
     return (
@@ -52,16 +56,17 @@ export const Main = () => {
                             !view ?
                                 sneakers.map((sneaker) => {
                                     return (
-                                        <Link key={sneaker.id} to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)} style={{ textDecoration: 'none' }}>
-                                            <div className='product__data'  >
+                                        <div key={sneaker.id} className='product__data'  >
+                                            <Link  to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)} style={{ textDecoration: 'none' }}>
                                                 <img src={sneaker.img && sneaker.img !== 'undefined' ? sneaker.img : imgNotFound} alt={`image of ${sneakers.img}`} />
                                                 <header>{sneaker.marca} </header>
                                                 <h3>{sneaker.nombre} </h3>
                                                 <p><b>Por:</b> {sneaker.empresa} </p>
                                                 <span>S/ {sneaker.precio}</span>
-                                                <button>Agregar al carrito</button>
-                                            </div>
-                                        </Link>
+
+                                            </Link>
+                                            <button onClick={() => handleChangeSetCart(sneaker.id)}>Agregar al carrito</button>
+                                        </div>
                                     )
                                 }) : <Routes>
                                     <Route path='/sneaker/:id' element={<SneakerPage handleChangeShow={handleChangeShow} sneakers={sneakers} />} />
