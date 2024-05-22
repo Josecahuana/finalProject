@@ -25,9 +25,8 @@ export const App = () => {
     <Router>
       <>
         <Header />
-        <SectionLocation />
-        <SectionLinks />
-
+        {/* <SectionLocation />
+        <SectionLinks /> */}
         <main className={!view ? 'products__main' : 'products__main-change'}>
           <section className={!view ? 'products__options' : 'products__option-change'}>
             <div>
