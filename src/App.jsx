@@ -1,6 +1,7 @@
 import menu from './assets/img/menu.svg'
 import project from './assets/img/project.jpeg'
 import sneakers from './assets/components/data'
+import imgNotFound from './assets/img/imgNotFound.svg'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import { SneakerPage } from './assets/components/SneakerPage'
 import { useState } from 'react'
@@ -10,7 +11,7 @@ import './App.css'
 export const App = () => {
 
   const [view, setView] = useState(false);
-
+  
   const handleChangeShow = (value) => {
     setView(value);
   }
@@ -96,14 +97,16 @@ export const App = () => {
                 !view ?
                   sneakers.map((sneaker) => {
                     return (
-                      <Link to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)} style={{textDecoration: 'none'}}>
-                        <div key={sneaker.id} className='product__data'  >
+                      <Link key={sneaker.id} to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)} style={{textDecoration: 'none'}}>
+                        <div  className='product__data'  >
                           <img src={ sneaker.img !== 'undefined' ? sneaker.img : '' } alt={`image of ${sneakers.img}`} />
                           <header>{sneaker.marca} </header>
-                          <h4>{sneaker.nombre} </h4>
-                          <p>{sneaker.empresa} </p>
-                          <span>{sneaker.precio}</span>
+                          <h3>{sneaker.nombre} </h3>
+                          <p><b>Por:</b> {sneaker.empresa} </p>
+                          <span>S/ {sneaker.precio}</span>
+                          <button>Agregar al carrito</button>  
                         </div>
+                        
                       </Link>
                     )
                   }) : <Routes>
@@ -113,7 +116,9 @@ export const App = () => {
             </section>
           </section>
         </main>
-
+            <div>
+            <img src={imgNotFound} alt="" />
+            </div>
       </>
     </Router>
   )
