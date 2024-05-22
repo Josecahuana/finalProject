@@ -57,13 +57,12 @@ export const Main = ({ handleChangeCart }) => {
                                 sneakers.map((sneaker) => {
                                     return (
                                         <div key={sneaker.id} className='product__data'  >
-                                            <Link  to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)} style={{ textDecoration: 'none' }}>
+                                            <Link className='link' to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)}>
                                                 <img src={sneaker.img && sneaker.img !== 'undefined' ? sneaker.img : imgNotFound} alt={`image of ${sneakers.img}`} />
-                                                <header>{sneaker.marca} </header>
-                                                <h3>{sneaker.nombre} </h3>
+                                                <header >{sneaker.marca} </header>
+                                                <h3 >{sneaker.nombre} </h3>
                                                 <p><b>Por:</b> {sneaker.empresa} </p>
                                                 <span>S/ {sneaker.precio}</span>
-
                                             </Link>
                                             <button onClick={() => handleChangeSetCart(sneaker.id)}>Agregar al carrito</button>
                                         </div>

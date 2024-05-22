@@ -115,9 +115,13 @@
     height: 400px;
     font-size: 13px;
     padding: 10px;
-    color: #717171;
     gap: 5px;
     transition: transform 0.5s ease;
+
+    .link{
+        text-decoration: none;
+        color: #717171;
+    }
 
     img {
         width: 100%;
@@ -158,6 +162,8 @@
     }
 
 }
+
+
 
 .product__data:hover {
     transform: scale(1.1)
