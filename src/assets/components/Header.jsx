@@ -1,6 +1,8 @@
 // import HeaderStyle from './HeaderStyle.css'
 export const Header = ({ cart }) => {
 
+    console.log(cart);
+
     return (
         <>
             <header className='menu__header'>
