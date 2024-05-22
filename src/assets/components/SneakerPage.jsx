@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import './SneakerPage.css'
 
 export const SneakerPage = ({ handleChangeShow, sneakers }) => {
+    
     const { id } = useParams();
 
     const newData = sneakers.find(sneaker => sneaker.id === +id)
