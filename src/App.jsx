@@ -15,9 +15,9 @@ export const App = () => {
   const [cart, setCart] = useState([]);
 
   const handleChangeCart = (value) => {
+    console.log(value);
     const newValue = data.find(item => item.id === value);
-    setCart(prevValue => [...prevValue, newValue]);
-    console.log(cart);
+    setCart(prevCart => [...prevCart, newValue]);
   }
   
   useEffect(() => {
