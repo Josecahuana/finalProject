@@ -1,40 +1,31 @@
-import { home } from './assets/components/Home'
-import { BarImage } from './assets/components/BarImage'
-import { Header } from './assets/components/Header'
-import { Main } from './assets/components/Main'
-import { BrowserRouter as Router } from 'react-router-dom'
-
-import { useEffect, useState } from "react";
-import data from './assets/components/data'
+import { Home } from './assets/components/Home';
+import { Menu } from './assets/components/Menu';
+import { SneakerPage } from './assets/components/SneakerPage';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { useState } from 'react';
+import sneakers from './assets/components/data'
 
 import './App.css'
 
 export const App = () => {
 
-  const [cart, setCart] = useState([]);
-  const [searchProduct, setSearchProduct] = useState([]);
-  const [input, setInput] = useState('');
+  const [view, setView] = useState(false);
 
-  const handleChangeCart = (value) => {
-    const newValue = data.find(item => item.id === value);
-    setCart(prevCart => [...prevCart, newValue]);
-  }
+  const handleChangeShow = (value) => {
+    setView(value);
+}
 
-  const handleChangeSearchProduct = (valueSearch, valueChar) => {
-    setSearchProduct(prevSearch => [...prevSearch, valueSearch]);
-    setInput(valueChar);
-    console.log(input);
-  }
-
-  
-  useEffect(() => {
-  }, [cart, searchProduct, input]);
+const handleChangeSetCart = (value) => {
+    handleChangeCart(value);
+}
 
   return (
     <Router>
-        <BarImage />
-        <Header cart={cart} data={data} handleChangeSearchProduct={handleChangeSearchProduct} />
-        <Main handleChangeCart={handleChangeCart} searchProduct={searchProduct} input={input}/>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/Menu' element={<Menu />} />
+        <Route path='/sneaker/:id/:nombre' element={<SneakerPage handleChangeShow={handleChangeShow} sneakers={sneakers} />} />
+      </Routes>
     </Router>
   )
 }
