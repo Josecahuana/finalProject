@@ -15,9 +15,9 @@ export const App = () => {
     setView(value);
 }
 
-const handleChangeSetCart = (value) => {
-    handleChangeCart(value);
-}
+// const handleChangeSetCart = (value) => {
+//     handleChangeCart(value);
+// }
 
   return (
     <Router>
