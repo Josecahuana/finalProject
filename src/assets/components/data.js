@@ -16,6 +16,19 @@ import JackPurcell from './dataImg/JackPurcell.jpg'
 import NMDR1 from './dataImg/NMDR1.jpg'
 import RayTrace from './dataImg/RayTrace.jpg'
 import Wildcat from './dataImg/Wildcat.jpg'
+import AdrenalineGTS21 from './dataImg/AdrenalineGTS21.jpg'
+import AirJordan1 from './dataImg/AirJordan1.jpg'
+import Bondi7 from './dataImg/Bondi7.jpg'
+import Boost350 from './dataImg/Boost350.jpg'
+import ClubC85 from './dataImg/ClubC85.jpg'
+import Curry7 from './dataImg/Curry7.jpeg'
+import RallyPro from './dataImg/RallyPro.jpg'
+import Sk8Hi from './dataImg/Sk8Hi.jpg'
+import Triumph18 from './dataImg/Triumph18.jpg'
+
+
+
+
 
 const sneakers = [
   { id: 1, marca: 'Nike', nombre: 'Air Max 270', empresa: 'Nike Inc.', precio: 150, descuento: 10, img: AirMax270 },
