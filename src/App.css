@@ -28,11 +28,10 @@
         width: 20%;
         display: flex;
         justify-content: center;
+        padding: 0 50px;
 
-        .option{
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        img {
+            min-width: 100%;
         }
     }
 
@@ -58,6 +57,14 @@
         padding-left: 10px;
         height: 40px;
         font-size: 16px;
+        outline: none;
+        
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 8px 32px 0 rgba(21, 21, 22, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        border: 1px solid rgba(7, 7, 7, 0.18);
     }
 
     .search__span {
@@ -72,6 +79,11 @@
         background-color: black;
         border-radius: 50%;
         width: 40px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
     }
 
 
@@ -84,6 +96,38 @@
 .sesion__cart {
     position: relative;
     display: flex;
+
+    .cart__span{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        transform: translate(50%, -50%);
+        background-color: red;
+        border-radius: 50%;
+        color: white;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cart__span-change{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        transform: translate(50%, -50%);
+        background-color: black;
+        border-radius: 50%;
+        color: white;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .shops {
         /* background-color: rgb(187, 187, 187); */
