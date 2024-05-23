@@ -82,14 +82,14 @@
     .shops {
         background-color: rgb(187, 187, 187);
         position: absolute;
-        width: 400px;
+        width: 500px;
         display: none;
         flex-direction: column;
         right: 0;
-        top: 100%;
+        top: -10px;
         padding: 10px;
         z-index: 10;
-        gap: 5px;
+        gap: 15px;
 
     }
 
@@ -97,6 +97,12 @@
 
 .sesion__cart:hover>.shops {
     display: flex;
+
+    .shops__title{
+        color: Black;
+        font-size: 18px;
+        font-weight: 800;
+    }
 }
 
 .shops__item {
@@ -200,11 +206,19 @@
         color: white;
         border-radius: 20px;
     }
-
     button:hover{
         background-color: #1d2329;
         cursor: pointer;
     }
+
+    button:last-of-type{
+        background-color: inherit;
+        text-decoration: underline;
+        color: black;
+
+    }
+
+
 }
 
 
@@ -283,3 +297,4 @@
 .products__option-change {
     display: none;
 }
+

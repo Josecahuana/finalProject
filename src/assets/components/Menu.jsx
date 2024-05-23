@@ -27,14 +27,29 @@ export const Menu = () => {
     }
 
     const handleDeleteCart = (id) => {
-        const deleteCart = cart.filter(car => car.id !== id)
+        const deleteCart = cart.filter(product => product.id !== id)
         setCart(deleteCart);
     }
+
+    const handleIncrementCant = (id) => {
+        setCart(prevCart => prevCart.map(product =>
+            product.id === id
+                ? { ...product, cantidad: product.cantidad < 5 ? product.cantidad + 1 : 5 }
+                : product
+        ));
+    };
+
+    const handleDecrementCant = (id) => {
+        setCart(prevCart => prevCart.map(product =>
+            product.id === id
+                ? { ...product, cantidad: product.cantidad > 1 ? product.cantidad - 1 : 1 }
+                : product
+        ));
+    };
 
     const handleChangeSearchProduct = (valueSearch) => {
         setSearchProduct([...searchProduct, valueSearch]);
     }
-
 
     useEffect(() => {
     }, [cart, searchProduct]);
@@ -46,7 +61,10 @@ export const Menu = () => {
                 cart={cart}
                 data={data}
                 handleChangeSearchProduct={handleChangeSearchProduct}
-                handleDeleteCart={handleDeleteCart} />
+                handleDeleteCart={handleDeleteCart} 
+                handleIncrementCant={handleIncrementCant}
+                handleDecrementCant={handleDecrementCant}
+                />
 
             <Main
                 handleInsertCart={handleInsertCart}

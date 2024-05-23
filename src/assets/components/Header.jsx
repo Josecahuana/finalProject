@@ -1,5 +1,5 @@
 import { InputSearch } from "./InputSearch"
-export const Header = ({ cart, data, handleChangeSearchProduct, handleDeleteCart }) => {
+export const Header = ({ cart, data, handleChangeSearchProduct, handleDeleteCart, handleIncrementCant, handleDecrementCant }) => {
 
     const handleClickDelete = (id) => {
         handleDeleteCart(id);
@@ -27,19 +27,20 @@ export const Header = ({ cart, data, handleChangeSearchProduct, handleDeleteCart
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" /></svg>
                         <span>{cart.length}</span>
                         <div className="shops">
+                            <p className="shops__title">Listado de tus compras</p>
                             {
                                 cart.length <= 0 ? <div>No hay resultado</div> :
                                 cart.map((car) => {
                                     return (
                                         <div key={car.id} className="shops__item">
                                             <p>{car.nombre}</p>
-                                            <span>{car.precio}</span>
+                                            <span>S/{car.precio}</span>
                                             <div className="item__div">
-                                                <button>
+                                                <button onClick={()=>handleIncrementCant(car.id)}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" /></svg>
                                                 </button>
                                                 <span>{car.cantidad}</span>
-                                                <button>
+                                                <button onClick={()=>handleDecrementCant(car.id)} >
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M200-440v-80h560v80H200Z"/></svg>
                                                 </button>
                                                 <button type="button" onClick={()=>handleClickDelete(car.id)}>

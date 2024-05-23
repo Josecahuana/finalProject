@@ -22,10 +22,11 @@ export const Main = ({ handleInsertCart, searchProduct }) => {
         setProducts(sneakers);
         const buttonSelected = sneakers.filter(product => product.marca === value);
         setProducts(buttonSelected)
-
     }
 
-  
+    const handleViewAll = () => {
+        setProducts(sneakers);
+    }
 
     return (
         <>
@@ -41,7 +42,11 @@ export const Main = ({ handleInsertCart, searchProduct }) => {
                     <div >
                         <h4>Marcas</h4>
                         <div className='marks'>
-                            <SearchProduct sneakers={sneakers} buttonFilterProdcut={buttonFilterProdcut} />
+                            <SearchProduct 
+                            sneakers={sneakers} 
+                            buttonFilterProdcut={buttonFilterProdcut} 
+                            handleViewAll={handleViewAll}
+                            />
                         </div>
                     </div>
                 </section>
