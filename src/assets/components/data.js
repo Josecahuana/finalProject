@@ -8,9 +8,14 @@ import NanoX1 from './dataImg/NanoX1.jpeg'
 import OldSkool from './dataImg/OldSkool.jpeg'
 import RSXpuma from './dataImg/RSXpuma.jpg'
 import UltraBoost from './dataImg/UltraBoost.jpg'
-
-
-
+import AirZoomPegasus37 from './dataImg/AirZoomPegasus37.jpg'
+import Cali from './dataImg/Cali.jpg'
+import GOrunRazor3 from './dataImg/GOrunRazor3.jpg'
+import GT20009 from './dataImg/GT20009.jpg'
+import JackPurcell from './dataImg/JackPurcell.jpg'
+import NMDR1 from './dataImg/NMDR1.jpg'
+import RayTrace from './dataImg/RayTrace.jpg'
+import Wildcat from './dataImg/Wildcat.jpg'
 
 const sneakers = [
   { id: 1, marca: 'Nike', nombre: 'Air Max 270', empresa: 'Nike Inc.', precio: 150, descuento: 10, img: AirMax270 },
