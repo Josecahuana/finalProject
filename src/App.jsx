@@ -1,7 +1,5 @@
 import { BarImage } from './assets/components/BarImage'
 import { Header } from './assets/components/Header'
-import { SectionLocation } from './assets/components/SectionLocation'
-import { SectionLinks } from './assets/components/SectionLinks'
 import { Main } from './assets/components/Main'
 import { BrowserRouter as Router } from 'react-router-dom'
 
@@ -33,13 +31,9 @@ export const App = () => {
 
   return (
     <Router>
-      <>
         <BarImage />
         <Header cart={cart} data={data} handleChangeSearchProduct={handleChangeSearchProduct} />
-        <SectionLocation />
-        {/* <SectionLinks /> */}
         <Main handleChangeCart={handleChangeCart} searchProduct={searchProduct} input={input}/>
-      </>
     </Router>
   )
 }
