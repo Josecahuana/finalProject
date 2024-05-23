@@ -8,7 +8,8 @@ export const Menu = () => {
 
     const [cart, setCart] = useState([]);
     const [searchProduct, setSearchProduct] = useState([]);
-    // const [input, setInput] = useState('');
+    const [filteredInput, setFilteredInput] = useState([]);
+    const [filterText, setFilterText] = useState('');
 
     const handleInsertCart = (value) => {
         const newValue = data.find(item => item.id === value);
@@ -48,8 +49,17 @@ export const Menu = () => {
     };
 
     const handleChangeSearchProduct = (valueSearch) => {
-        setSearchProduct([...searchProduct, valueSearch]);
+        setSearchProduct(prevSearchProduct => [...prevSearchProduct, valueSearch]);
     }
+
+    const handleFilterChange = (text) => {
+        setFilterText(text);
+
+        const filtered = data.filter(item =>
+            item.nombre.toLowerCase().includes(text.toLowerCase())
+        );
+        setFilteredInput(filtered);
+    };
 
     useEffect(() => {
     }, [cart, searchProduct]);
@@ -61,15 +71,17 @@ export const Menu = () => {
                 cart={cart}
                 data={data}
                 handleChangeSearchProduct={handleChangeSearchProduct}
-                handleDeleteCart={handleDeleteCart} 
+                handleDeleteCart={handleDeleteCart}
                 handleIncrementCant={handleIncrementCant}
                 handleDecrementCant={handleDecrementCant}
-                />
+                filterText={filterText}
+                handleFilterChange={handleFilterChange}
+            />
 
             <Main
                 handleInsertCart={handleInsertCart}
-                searchProduct={searchProduct}
-            // input={input} 
+                filterText={filterText}
+                filteredInput={filteredInput}
             />
         </>
     )

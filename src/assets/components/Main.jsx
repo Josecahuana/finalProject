@@ -5,10 +5,18 @@ import imgNotFound from './dataImg/imgNotFound.svg'
 import { SneakerPage } from './SneakerPage'
 import { useEffect, useState } from 'react'
 
-export const Main = ({ handleInsertCart, searchProduct }) => {
+export const Main = ({ handleInsertCart, filterText,filteredInput }) => {
 
-    const [view, setView] = useState(false);
     const [products, setProducts] = useState(sneakers);
+
+    useEffect(() => {
+        if (filterText === '') {
+            setProducts(sneakers);
+        } else {
+            setProducts(filteredInput);
+        }
+    }, [filterText, filteredInput]);
+
 
     const handleChangeShow = (value) => {
         setView(value);

@@ -1,10 +1,11 @@
 import { InputSearch } from "./InputSearch"
-export const Header = ({ cart, data, handleChangeSearchProduct, handleDeleteCart, handleIncrementCant, handleDecrementCant }) => {
+export const Header = ({ cart, data, handleDeleteCart, handleIncrementCant, handleDecrementCant, filterText, handleFilterChange }) => {
+
+
 
     const handleClickDelete = (id) => {
         handleDeleteCart(id);
     }
-
 
     return (
         <>
@@ -16,7 +17,7 @@ export const Header = ({ cart, data, handleChangeSearchProduct, handleDeleteCart
                         <b>Menú</b>
                     </div>
                 </div>
-                <InputSearch data={data} handleChangeSearchProduct={handleChangeSearchProduct} />
+                <InputSearch  filterText={ filterText} handleFilterChange={handleFilterChange} />
                 <div className="menu__sesion">
                     <p>Hola, <b>Iniciar sesión</b></p>
                     <span>
