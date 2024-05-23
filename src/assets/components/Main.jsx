@@ -8,7 +8,7 @@ import { useState } from 'react'
 export const Main = ({ handleChangeCart, searchProduct, input }) => {
 
     const [view, setView] = useState(false);
-
+    
     const handleChangeShow = (value) => {
         setView(value);
     }
@@ -30,14 +30,13 @@ export const Main = ({ handleChangeCart, searchProduct, input }) => {
                     </div>
                     <div >
                         <h4>Marcas</h4>
-                        <input type="text" placeholder='Buscar' />
-                        <div>
+                        <div className='marks'>
                             <SearchProduct sneakers={sneakers} />
                         </div>
                     </div>
                 </section>
                 <section className='products__list'>
-                    <header >
+                    {/* <header >
                         <div>
 
 
@@ -50,11 +49,9 @@ export const Main = ({ handleChangeCart, searchProduct, input }) => {
 
                             </div>
                         </div>
-                    </header>
+                    </header> */}
                     <section className={!view ? 'product' : 'Change'}>
                         {
-
-
                             sneakers.map((sneaker) => {
                                 return (
                                     <div key={sneaker.id} className='product__data'  >

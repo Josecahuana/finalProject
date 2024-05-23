@@ -11,7 +11,8 @@
     object-fit: cover;
 }
 
-.menu__header, .location{
+.menu__header,
+.location {
     margin-bottom: 10px;
 }
 
@@ -23,14 +24,14 @@
     justify-content: center;
     background-color: white;
 
-    .menu__option{
+    .menu__option {
         width: 20%;
         display: flex;
         justify-content: center;
     }
 
-    
-    .menu__sesion{
+
+    .menu__sesion {
         width: 30%;
         display: flex;
         justify-content: center;
@@ -40,20 +41,20 @@
 }
 
 /*InputSearch*/
-.menu__search{
+.menu__search {
     width: 50%;
     display: flex;
     justify-content: center;
     position: relative;
-    
-    .search__input{
+
+    .search__input {
         width: 100%;
         padding-left: 10px;
         height: 40px;
         font-size: 16px;
     }
 
-    .search__span{
+    .search__span {
         height: 40px;
         position: absolute;
         right: 0;
@@ -74,11 +75,11 @@
 
 
 
-.sesion__cart{
+.sesion__cart {
     position: relative;
     display: flex;
-    
-    .shops{
+
+    .shops {
         background-color: rgb(187, 187, 187);
         position: absolute;
         width: 400px;
@@ -91,29 +92,30 @@
         gap: 5px;
 
     }
- 
+
 }
 
-.sesion__cart:hover > .shops{
+.sesion__cart:hover>.shops {
     display: flex;
 }
 
-.shops__item{
+.shops__item {
     display: flex;
     background-color: white;
     height: 35px;
     align-items: center;
     padding: 0 10px;
-    p{
+
+    p {
         width: 50%;
     }
 
-    span{
+    span {
         width: 10%;
     }
 }
 
-.item__div{
+.item__div {
     width: 40%;
     display: flex;
     justify-content: center;
@@ -122,7 +124,7 @@
     text-align: center;
 
 
-    button{
+    button {
         width: 20px;
         height: 20px;
         display: flex;
@@ -130,7 +132,7 @@
         align-items: center;
     }
 
-    button:last-of-type{
+    button:last-of-type {
         border: none;
         background-color: inherit;
     }
@@ -176,10 +178,32 @@
         width: 30%;
         padding: 20px;
         background-color: white;
+
     }
 
     .products__list {
         width: 70%;
+    }
+}
+
+.marks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    
+    button {
+        padding: 5px 20px;
+        height: 30px;
+        border: none;
+        background-color: #343E49;
+        color: white;
+        border-radius: 20px;
+    }
+
+    button:hover{
+        background-color: #1d2329;
+        cursor: pointer;
     }
 }
 
@@ -201,7 +225,7 @@
     gap: 5px;
     transition: transform 0.5s ease;
 
-    .link{
+    .link {
         text-decoration: none;
         color: #717171;
     }
@@ -259,6 +283,3 @@
 .products__option-change {
     display: none;
 }
-
-
-
