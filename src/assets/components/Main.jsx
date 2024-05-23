@@ -5,7 +5,7 @@ import imgNotFound from './dataImg/imgNotFound.svg'
 import { SneakerPage } from './SneakerPage'
 import { useEffect, useState } from 'react'
 
-export const Main = ({ handleChangeCart, searchProduct }) => {
+export const Main = ({ handleInsertCart, searchProduct }) => {
 
     const [view, setView] = useState(false);
     const [products, setProducts] =  useState(sneakers);
@@ -15,7 +15,7 @@ export const Main = ({ handleChangeCart, searchProduct }) => {
     }
 
     const handleChangeSetCart = (value) => {
-        handleChangeCart(value);
+        handleInsertCart(value);
     }
 
     const buttonFilterProdcut = (value) => {

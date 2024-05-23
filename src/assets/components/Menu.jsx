@@ -1,4 +1,4 @@
-import {BarImage } from './BarImage'
+import { BarImage } from './BarImage'
 import { Header } from './Header'
 import { Main } from './Main'
 import { useEffect, useState } from "react";
@@ -10,29 +10,29 @@ export const Menu = () => {
     const [searchProduct, setSearchProduct] = useState([]);
     // const [input, setInput] = useState('');
 
-    const handleChangeCart = (value) => {
+    const handleInsertCart = (value) => {
         const newValue = data.find(item => item.id === value);
         const productInCart = cart.find(product => product.id === newValue.id);
 
         if (productInCart) {
-            // Si ya está en el carrito, actualiza su cantidad
             setCart(prevCart => prevCart.map(product =>
                 product.id === newValue.id
                     ? { ...product, cantidad: (product.cantidad || 1) + 1 }
                     : product
             ));
-            console.log('Cantidad actualizada');
         } else {
-            // Si no está en el carrito, agrégalo con cantidad 1
             setCart(prevCart => [...prevCart, { ...newValue, cantidad: 1 }]);
         }
 
     }
-    console.log(cart);
+
+    const handleDeleteCart = (id) => {
+        const deleteCart = cart.filter(car => car.id !== id)
+        setCart(deleteCart);
+    }
 
     const handleChangeSearchProduct = (valueSearch) => {
-        setSearchProduct([ ...searchProduct, valueSearch]);
-        console.log(searchProduct);
+        setSearchProduct([...searchProduct, valueSearch]);
     }
 
 
@@ -42,8 +42,15 @@ export const Menu = () => {
     return (
         <>
             <BarImage />
-            <Header cart={cart} data={data} handleChangeSearchProduct={handleChangeSearchProduct} />
-            <Main handleChangeCart={handleChangeCart} searchProduct={searchProduct} 
+            <Header
+                cart={cart}
+                data={data}
+                handleChangeSearchProduct={handleChangeSearchProduct}
+                handleDeleteCart={handleDeleteCart} />
+
+            <Main
+                handleInsertCart={handleInsertCart}
+                searchProduct={searchProduct}
             // input={input} 
             />
         </>
