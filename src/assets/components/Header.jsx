@@ -1,5 +1,5 @@
 import { InputSearch } from "./InputSearch"
-export const Header = ({ cart, data, handleDeleteCart, handleIncrementCant, handleDecrementCant, filterText, handleFilterChange }) => {
+export const Header = ({ cart, handleDeleteCart, handleIncrementCant, handleDecrementCant, filterText, handleFilterChange }) => {
 
 
 
@@ -42,7 +42,7 @@ export const Header = ({ cart, data, handleDeleteCart, handleIncrementCant, hand
                                                                 <button onClick={() => handleIncrementCant(car.id)}>
                                                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" /></svg>
                                                                 </button>
-                                                                <span>{car.cantidad}</span>
+                                                                <span>{car.cantidad <= 5 ? car.cantidad : 5}</span>
                                                                 <button onClick={() => handleDecrementCant(car.id)} >
                                                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-440v-80h560v80H200Z" /></svg>
                                                                 </button>
