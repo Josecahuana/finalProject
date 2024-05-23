@@ -10,7 +10,7 @@ export const InputSearch = ({ data, handleChangeSearchProduct }) => {
         const filterProduct = data.filter(item =>
             item.nombre.toLowerCase().includes(valueChar.toLowerCase())
         );
-        handleChangeSearchProduct(filterProduct);
+        handleChangeSearchProduct(filterProduct, valueChar);
 
     }
     return (

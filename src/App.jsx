@@ -13,21 +13,23 @@ import './App.css'
 export const App = () => {
 
   const [cart, setCart] = useState([]);
-
   const [searchProduct, setSearchProduct] = useState([]);
+  const [input, setInput] = useState('');
 
   const handleChangeCart = (value) => {
     const newValue = data.find(item => item.id === value);
     setCart(prevCart => [...prevCart, newValue]);
   }
 
-  const handleChangeSearchProduct = (valueSearch) => {
-    setSearchProduct(valueSearch)
+  const handleChangeSearchProduct = (valueSearch, valueChar) => {
+    setSearchProduct(prevSearch => [...prevSearch, valueSearch]);
+    setInput(valueChar);
+    console.log(input);
   }
 
   
   useEffect(() => {
-  }, [cart, searchProduct]);
+  }, [cart, searchProduct, input]);
 
   return (
     <Router>
@@ -36,7 +38,7 @@ export const App = () => {
         <Header cart={cart} data={data} handleChangeSearchProduct={handleChangeSearchProduct} />
         <SectionLocation />
         {/* <SectionLinks /> */}
-        <Main handleChangeCart={handleChangeCart} searchProduct={searchProduct} />
+        <Main handleChangeCart={handleChangeCart} searchProduct={searchProduct} input={input}/>
       </>
     </Router>
   )

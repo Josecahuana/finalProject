@@ -5,7 +5,7 @@ import imgNotFound from '../img/imgNotFound.svg'
 import { SneakerPage } from './SneakerPage'
 import { useState } from 'react'
 
-export const Main = ({ handleChangeCart, searchProduct }) => {
+export const Main = ({ handleChangeCart, searchProduct, input }) => {
 
     const [view, setView] = useState(false);
 
@@ -52,28 +52,46 @@ export const Main = ({ handleChangeCart, searchProduct }) => {
                         </div>
                     </header>
                     <section className={!view ? 'product' : 'Change'}>
-                    {
-                        searchProduct.length === 0 ? (
-                            !view ?
-                                sneakers.map((sneaker) => {
-                                    return (
-                                        <div key={sneaker.id} className='product__data'  >
-                                            <Link className='link' to={`/sneaker/${sneaker.id}/${sneaker.nombre}`} onClick={() => handleChangeShow(true)}>
-                                                <img src={sneaker.img && sneaker.img !== 'undefined' ? sneaker.img : imgNotFound} alt={`image of ${sneakers.img}`} />
-                                                <header >{sneaker.marca} </header>
-                                                <h3 >{sneaker.nombre} </h3>
-                                                <p><b>Por:</b> {sneaker.empresa} </p>
-                                                <span>S/ {sneaker.precio}</span>
-                                            </Link>
-                                            <button onClick={() => handleChangeSetCart(sneaker.id)}>Agregar al carrito</button>
-                                        </div>
-                                    )
-                                }) : <Routes>
-                                    <Route path='/sneaker/:id/:nombre' element={<SneakerPage handleChangeShow={handleChangeShow} sneakers={sneakers} />} />
-                                </Routes>
-                        )
-                    : <div>Hola</div>
-                    }
+                        {
+                            input.length === 0 ? (
+                                !view ?
+                                    sneakers.map((sneaker) => {
+                                        return (
+                                            <div key={sneaker.id} className='product__data'  >
+                                                <Link className='link' to={`/sneaker/${sneaker.id}/${sneaker.nombre}`} onClick={() => handleChangeShow(true)}>
+                                                    <img src={sneaker.img && sneaker.img !== 'undefined' ? sneaker.img : imgNotFound} alt={`image of ${sneakers.img}`} />
+                                                    <header >{sneaker.marca} </header>
+                                                    <h3 >{sneaker.nombre} </h3>
+                                                    <p><b>Por:</b> {sneaker.empresa} </p>
+                                                    <span>S/ {sneaker.precio}</span>
+                                                </Link>
+                                                <button onClick={() => handleChangeSetCart(sneaker.id)}>Agregar al carrito</button>
+                                            </div>
+                                        )
+                                    }) : <Routes>
+                                        <Route path='/sneaker/:id/:nombre' element={<SneakerPage handleChangeShow={handleChangeShow} sneakers={sneakers} />} />
+                                    </Routes>
+                            ) : (
+                                !view ?
+                                    searchProduct.map(product => {
+                                        return (
+                                            <div key={product.id} className='product__data'  >
+                                                <Link className='link' to={`/sneaker/${product.id}/${product.nombre}`} onClick={() => handleChangeShow(true)}>
+                                                    <img src={product.img && product.img !== 'undefined' ? product.img : imgNotFound} alt={`image of ${sneakers.img}`} />
+                                                    <header >{product.marca} </header>
+                                                    <h3 >{product.nombre} </h3>
+                                                    <p><b>Por:</b> {product.empresa} </p>
+                                                    <span>S/ {product.precio}</span>
+                                                </Link>
+                                                <button onClick={() => handleChangeSetCart(product.id)}>Agregar al carrito</button>
+                                            </div>
+                                        )
+                                    }) : <Routes>
+                                        <Route path='/sneaker/:id/:nombre' element={<SneakerPage handleChangeShow={handleChangeShow} sneakers={sneakers} />} />
+                                    </Routes>
+                            )
+
+                        }
                     </section>
                 </section>
             </main>
