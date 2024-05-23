@@ -5,7 +5,7 @@ import imgNotFound from '../img/imgNotFound.svg'
 import { SneakerPage } from './SneakerPage'
 import { useState } from 'react'
 
-export const Main = ({ handleChangeCart }) => {
+export const Main = ({ handleChangeCart, searchProduct }) => {
 
     const [view, setView] = useState(false);
 
@@ -52,12 +52,13 @@ export const Main = ({ handleChangeCart }) => {
                         </div>
                     </header>
                     <section className={!view ? 'product' : 'Change'}>
-                        {
+                    {
+                        searchProduct.length === 0 ? (
                             !view ?
                                 sneakers.map((sneaker) => {
                                     return (
                                         <div key={sneaker.id} className='product__data'  >
-                                            <Link className='link' to={`/sneaker/${sneaker.id}`} onClick={() => handleChangeShow(true)}>
+                                            <Link className='link' to={`/sneaker/${sneaker.id}/${sneaker.nombre}`} onClick={() => handleChangeShow(true)}>
                                                 <img src={sneaker.img && sneaker.img !== 'undefined' ? sneaker.img : imgNotFound} alt={`image of ${sneakers.img}`} />
                                                 <header >{sneaker.marca} </header>
                                                 <h3 >{sneaker.nombre} </h3>
@@ -68,9 +69,11 @@ export const Main = ({ handleChangeCart }) => {
                                         </div>
                                     )
                                 }) : <Routes>
-                                    <Route path='/sneaker/:id' element={<SneakerPage handleChangeShow={handleChangeShow} sneakers={sneakers} />} />
+                                    <Route path='/sneaker/:id/:nombre' element={<SneakerPage handleChangeShow={handleChangeShow} sneakers={sneakers} />} />
                                 </Routes>
-                        }
+                        )
+                    : <div>Hola</div>
+                    }
                     </section>
                 </section>
             </main>

@@ -14,23 +14,29 @@ export const App = () => {
 
   const [cart, setCart] = useState([]);
 
+  const [searchProduct, setSearchProduct] = useState([]);
+
   const handleChangeCart = (value) => {
-    console.log(value);
     const newValue = data.find(item => item.id === value);
     setCart(prevCart => [...prevCart, newValue]);
   }
+
+  const handleChangeSearchProduct = (valueSearch) => {
+    setSearchProduct(valueSearch)
+  }
+
   
   useEffect(() => {
-  }, [cart]);
+  }, [cart, searchProduct]);
 
   return (
     <Router>
       <>
         <BarImage />
-        <Header cart={cart} />
+        <Header cart={cart} data={data} handleChangeSearchProduct={handleChangeSearchProduct} />
         <SectionLocation />
         {/* <SectionLinks /> */}
-        <Main handleChangeCart={handleChangeCart} />
+        <Main handleChangeCart={handleChangeCart} searchProduct={searchProduct} />
       </>
     </Router>
   )

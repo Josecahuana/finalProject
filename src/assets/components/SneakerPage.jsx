@@ -3,7 +3,7 @@ import './SneakerPage.css'
 
 export const SneakerPage = ({ handleChangeShow, sneakers }) => {
     
-    const { id } = useParams();
+    const { id, nombre } = useParams();
 
     const newData = sneakers.find(sneaker => sneaker.id === +id)
 
@@ -91,7 +91,7 @@ export const SneakerPage = ({ handleChangeShow, sneakers }) => {
                                 </div>
                                 <span>Máximo 10 unidades</span>
                             </div>
-                            <button className='button__options' type='button'>Elige tus opciones</button>
+                            <button className='button__options' type='button'>Agregar al carrito</button>
                         </div>
                     </section>
                 </section>

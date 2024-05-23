@@ -1,11 +1,5 @@
-import { useEffect, useState } from "react"
-
-// import HeaderStyle from './HeaderStyle.css'
-export const Header = ({ cart }) => {
-
-    const [change, setChange] = useState(cart);
-
-
+import { InputSearch } from "./InputSearch"
+export const Header = ({ cart, data, handleChangeSearchProduct}) => {
 
     return (
         <>
@@ -17,12 +11,7 @@ export const Header = ({ cart }) => {
                         <b>Menú</b>
                     </div>
                 </div>
-                <div className="menu__search">
-                    <input type="text" />
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" /></svg>
-                    </span>
-                </div>
+                <InputSearch data={data} handleChangeSearchProduct={handleChangeSearchProduct} />
                 <div className="menu__sesion">
                     <p>Hola, <b>Inia sesión</b></p>
                     <p>Mis, <span><b>compras span</b><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" /></svg></span></p>
@@ -34,12 +23,24 @@ export const Header = ({ cart }) => {
                         <span>{cart.length}</span>
                         <div className="shops">
                             {
+                                cart.length <= 0 ? <div>No hay resultado</div> :
                                 cart.map((car) => {
                                     return (
                                         <div key={car.id} className="shops__item">
                                             <p>{car.nombre}</p>
                                             <span>{car.precio}</span>
-                                            <button type="button">Delete</button>
+                                            <div className="item__div">
+                                                <button>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" /></svg>
+                                                </button>
+                                                <span>1</span>
+                                                <button>
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M200-440v-80h560v80H200Z"/></svg>
+                                                </button>
+                                                <button type="button">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm80-160h80v-360h-80v360Zm160 0h80v-360h-80v360Z" /></svg>
+                                                </button>
+                                            </div>
                                         </div>
                                     )
                                 })
