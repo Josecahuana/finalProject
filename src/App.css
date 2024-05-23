@@ -28,6 +28,12 @@
         width: 20%;
         display: flex;
         justify-content: center;
+
+        .option{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
     }
 
 
@@ -80,14 +86,22 @@
     display: flex;
 
     .shops {
-        background-color: rgb(187, 187, 187);
+        /* background-color: rgb(187, 187, 187); */
+        background: rgba(50, 87, 155, 0.75);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
         position: absolute;
-        width: 500px;
+        width: 600px;
         display: none;
+        max-height: 300px;
+        overflow-y: auto;
         flex-direction: column;
         right: 0;
         top: -10px;
-        padding: 10px;
+        padding: 10px 20px;
         z-index: 10;
         gap: 15px;
 
@@ -98,19 +112,32 @@
 .sesion__cart:hover>.shops {
     display: flex;
 
-    .shops__title{
+    .shops__title {
         color: Black;
-        font-size: 18px;
-        font-weight: 800;
+        font-size: 24px;
+        font-weight: 700;
+        color: #000;
     }
+}
+
+.shops__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
 }
 
 .shops__item {
     display: flex;
-    background-color: white;
     height: 35px;
     align-items: center;
     padding: 0 10px;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 
     p {
         width: 50%;
@@ -119,6 +146,21 @@
     span {
         width: 10%;
     }
+}
+
+.shops__butonAll {
+    width: 80%;
+    margin: 0 auto;
+    background: rgba(3, 106, 10, 0.9);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 .item__div {
@@ -131,11 +173,19 @@
 
 
     button {
+        cursor: pointer;
         width: 20px;
         height: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
+        background: rgba(0, 0, 0, 0.9);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: white;
     }
 
     button:last-of-type {
@@ -197,7 +247,7 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 10px;
-    
+
     button {
         padding: 5px 20px;
         height: 30px;
@@ -206,12 +256,13 @@
         color: white;
         border-radius: 20px;
     }
-    button:hover{
+
+    button:hover {
         background-color: #1d2329;
         cursor: pointer;
     }
 
-    button:last-of-type{
+    button:last-of-type {
         background-color: inherit;
         text-decoration: underline;
         color: black;
@@ -297,4 +348,3 @@
 .products__option-change {
     display: none;
 }
-

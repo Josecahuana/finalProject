@@ -11,15 +11,14 @@ export const Header = ({ cart, data, handleChangeSearchProduct, handleDeleteCart
             <header className='menu__header'>
                 <div className='menu__option'>
                     {/* <img src="" alt="" /> */}
-                    <div>
+                    <div className="option">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" /></svg>
                         <b>Menú</b>
                     </div>
                 </div>
                 <InputSearch data={data} handleChangeSearchProduct={handleChangeSearchProduct} />
                 <div className="menu__sesion">
-                    <p>Hola, <b>Inia sesión</b></p>
-                    <p>Mis, <span><b>compras span</b><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" /></svg></span></p>
+                    <p>Hola, <b>Iniciar sesión</b></p>
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" /></svg>
                     </span>
@@ -30,26 +29,34 @@ export const Header = ({ cart, data, handleChangeSearchProduct, handleDeleteCart
                             <p className="shops__title">Listado de tus compras</p>
                             {
                                 cart.length <= 0 ? <div>No hay resultado</div> :
-                                cart.map((car) => {
-                                    return (
-                                        <div key={car.id} className="shops__item">
-                                            <p>{car.nombre}</p>
-                                            <span>S/{car.precio}</span>
-                                            <div className="item__div">
-                                                <button onClick={()=>handleIncrementCant(car.id)}>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" /></svg>
-                                                </button>
-                                                <span>{car.cantidad}</span>
-                                                <button onClick={()=>handleDecrementCant(car.id)} >
-                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M200-440v-80h560v80H200Z"/></svg>
-                                                </button>
-                                                <button type="button" onClick={()=>handleClickDelete(car.id)}>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm80-160h80v-360h-80v360Zm160 0h80v-360h-80v360Z" /></svg>
-                                                </button>
-                                            </div>
+                                    (
+                                        <div className="shops__list">
+                                            {
+                                                cart.map((car) => {
+                                                    return (
+                                                        <div key={car.id} className="shops__item">
+                                                            <p>{car.nombre}</p>
+                                                            <span>S/{car.precio}</span>
+                                                            <div className="item__div">
+                                                                <button onClick={() => handleIncrementCant(car.id)}>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" /></svg>
+                                                                </button>
+                                                                <span>{car.cantidad}</span>
+                                                                <button onClick={() => handleDecrementCant(car.id)} >
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-440v-80h560v80H200Z" /></svg>
+                                                                </button>
+                                                                <button type="button" onClick={() => handleClickDelete(car.id)}>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm80-160h80v-360h-80v360Zm160 0h80v-360h-80v360Z" /></svg>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                            <button className="shops__butonAll"> Comprar Productos</button>
                                         </div>
                                     )
-                                })
+
                             }
                         </div>
                     </span>
