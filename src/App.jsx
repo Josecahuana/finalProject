@@ -15,16 +15,16 @@ export const App = () => {
     setView(value);
 }
 
-// const handleChangeSetCart = (value) => {
-//     handleChangeCart(value);
-// }
+const handleChangeSetCart = (value) => {
+    handleChangeCart(value);
+}
 
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Menu' element={<Menu />} />
-        <Route path='/sneaker/:id/:nombre' element={<SneakerPage handleChangeShow={handleChangeShow} sneakers={sneakers} />} />
+        <Route path='/Menu/:id/:nombre' element={<SneakerPage handleChangeShow={handleChangeShow} sneakers={sneakers} />} />
         <Route path='/Login' element={<Login/>} />
       </Routes>
     </Router>
