@@ -1,13 +1,46 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import shop from '../img/shop.png'
 import './Login.css'
+
 export const Login = () => {
 
-    const [register, setRegister] = useState([]);
+    const [user, setUser] = useState([]);
+    const [inputUser, setInputUser] = useState('');
+    const [inputEmail, setInputEmail] = useState('');
+    const [message, setMessage] = useState('');
+    // const [get, setGet] = useState(false);
+    const navigate = useNavigate();
 
-    const handleRegister = () => {
+    useEffect(() => {
+        const userRegister = localStorage.getItem('users');
+
+        if (!userRegister) {
+            const initialUsers = [
+                { userName: 'Luis', email: 'luis@gmail.com' },
+                { userName: 'Rocio', email: 'rocio@gmail.com' },
+            ];
+
+            localStorage.setItem('users', JSON.stringify(initialUsers));
+            setUser(initialUsers);
+        } else {
+            setUser(JSON.parse(userRegister));
+        }
+    }, [])
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const userExist = user.some(user => user.userName === inputUser && user.email === inputEmail);
+        if (userExist) {
+            navigate('/');
+        } else {
+            setGet(false)
+            setMessage('Usuario no encontrado');
+            setTimeout(() => {
+                setMessage('');
+            }, 3000)
+        }
     }
-
 
     return (
         <>
@@ -21,15 +54,39 @@ export const Login = () => {
                     <form action="">
                         <div className="user">
                             <label htmlFor="user"></label>
-                            <input type="text" name="text user" id="user" placeholder="Usuario" />
+                            <input
+                                type="text"
+                                name="text user"
+                                id="user"
+                                placeholder="Usuario"
+                                value={inputUser}
+                                onChange={e => setInputUser(e.target.value)} 
+                                required
+                                />
                         </div>
                         <div className="password">
                             <label htmlFor="password">
                             </label>
-                            <input type="email" name="text password" id="password" placeholder="Contraseña" />
+                            <input
+                                type="email"
+                                name="text password"
+                                id="password"
+                                placeholder="Contraseña"
+                                value={inputEmail}
+                                onChange={e => setInputEmail(e.target.value)}
+                                required
+                            />
                         </div>
-                        <input className='register__button' type="submit" value="Ingresar" />
+                        <input
+                            className='register__button'
+                            type="submit"
+                            value="Ingresar" />
                     </form>
+
+                    {
+                        message !== '' && <div className='login__message-error'>{message}</div>
+                    }
+
                 </div>
             </div>
         </>
