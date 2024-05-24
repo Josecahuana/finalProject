@@ -32,7 +32,7 @@ export const Login = () => {
         e.preventDefault();
         const userExist = user.some(user => user.userName === inputUser && user.email === inputEmail);
         if (userExist) {
-            navigate('/');
+            navigate('/', { state: { username: inputUser } });
         } else {
             setGet(false)
             setMessage('Usuario no encontrado');
@@ -60,9 +60,9 @@ export const Login = () => {
                                 id="user"
                                 placeholder="Usuario"
                                 value={inputUser}
-                                onChange={e => setInputUser(e.target.value)} 
+                                onChange={e => setInputUser(e.target.value)}
                                 required
-                                />
+                            />
                         </div>
                         <div className="password">
                             <label htmlFor="password">
