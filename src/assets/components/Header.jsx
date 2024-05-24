@@ -1,6 +1,6 @@
 import { InputSearch } from "./InputSearch"
 import faketitle from '../img/faketitle.jpg'
-
+import { Link } from "react-router-dom"
 export const Header = ({ cart, handleDeleteCart, handleIncrementCant, handleDecrementCant, filterText, handleFilterChange }) => {
 
 
@@ -12,13 +12,10 @@ export const Header = ({ cart, handleDeleteCart, handleIncrementCant, handleDecr
     return (
         <>
             <header className='menu__header'>
-                <div className='menu__option'>
-                    <img src={faketitle} alt="" />
-                    {/* <div className="option">
-                        <img src={faketitle} alt="" />
-                    </div> */}
-                </div>
-                <InputSearch  filterText={ filterText} handleFilterChange={handleFilterChange} />
+                <Link to='/'className='menu__option' >
+                        <img src={faketitle} alt="img fakeshop" />
+                </Link>
+                <InputSearch filterText={filterText} handleFilterChange={handleFilterChange} />
                 <div className="menu__sesion">
                     <p>Hola, <b>Iniciar sesión</b></p>
                     <span>
