@@ -24,7 +24,6 @@ export const Home = () => {
                     <h4>Envio gratis en compras mayores a S/199</h4>
                 </div>
             </section>
-
             <header className='menu__header'>
                 <div className='menu__option'>
                     <img src={faketitle} alt="img fakeshop" />
@@ -44,15 +43,7 @@ export const Home = () => {
                     </span>
                 </div>
             </header>
-
-            {/* <div className="BannerImage">
-                    <ImageGallery items={images}
-                        showPlayButton={false}
-                        showFullscreenButton={false}
-                        showThumbnails={false}
-                        showBullets={true} />
-            </div> */}
-
+            
             <div className="descount__product">
                 <img src={ropaslider} alt="img  clothes" />
                 <Link to='/Menu'>
