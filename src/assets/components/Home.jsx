@@ -1,19 +1,20 @@
 import ImageGallery from "react-image-gallery";
 import faketitle from '../img/faketitle.jpg'
 import "react-image-gallery/styles/css/image-gallery.css"
-import ropaslider from '../img/ropaslider.jpg'
-import sliderrefri from '../img/sliderrefri.jpg'
-import sliderShoes from '../img/sliderShoes.jpg'
+import ropaslider from '../img/ropaHombre.png'
+import sliderrefri from '../img/ropaMujer.png'
+import sliderShoes from '../img/Zapatillas.png'
 import { Link } from "react-router-dom";
 import { InputSearch } from "./InputSearch";
+
 export const Home = () => {
 
     const images = [
         {
-            original: "./src/img/banner/banner.png"
+            original: "./src/assets/components/dataImg/banner/banner.png"
         },
         {
-            original: "./src/img/banner/banner2.png"
+            original: "./src/assets/components/dataImg/banner/banner2.png"
         }
     ]
 
@@ -21,9 +22,10 @@ export const Home = () => {
         <>
             <section className="barraOferta">
                 <div>
-                    <h4>Envio gratis en compras mayores a S/199</h4>
+                    <h4>🔥Envio gratis en compras mayores a S/199 👟</h4>
                 </div>
             </section>
+
             <header className='menu__header'>
                 <div className='menu__option'>
                     <img src={faketitle} alt="img fakeshop" />
@@ -43,13 +45,23 @@ export const Home = () => {
                     </span>
                 </div>
             </header>
-            
+
+            <div className="BannerImage"> 
+                <ImageGallery className="" items={images}
+                showPlayButton={false}
+                showFullscreenButton={false}
+                showThumbnails={false}
+                showBullets={true} 
+                
+                />
+             </div>
+              
             <div className="descount__product">
-                <img src={ropaslider} alt="img  clothes" />
+                <img className="descount__important" src={ropaslider} alt="img  clothes" />
                 <Link to='/Menu'>
                     <img className="descount__important" src={sliderShoes} alt="img shoes" />
                 </Link>
-                <img src={sliderrefri} alt="img fridge" />
+                <img className="descount__important" src={sliderrefri} alt="img fridge" />
             </div>
 
         </>

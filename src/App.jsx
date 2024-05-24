@@ -3,8 +3,7 @@ import { Menu } from './assets/components/Menu';
 import { SneakerPage } from './assets/components/SneakerPage';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { useState } from 'react';
-import sneakers from './assets/components/data'
-
+import sneakers from './assets/components/data' 
 import './App.css'
 
 export const App = () => {

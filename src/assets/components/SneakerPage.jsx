@@ -98,8 +98,11 @@ export const SneakerPage = ({ handleChangeShow, sneakers }) => {
                                         <button type='button'> +</button>
                                     </div>
                                     <span>Máximo 10 unidades</span>
-                                </div>
-                                <button className='button__options' type='button'>Agregar al carrito</button>
+                                </div > 
+                                 <div className='button__options'>
+                                 <button  className='button__options' type='button'>Agregar al carrito</button>
+                                </div>               
+                                
                             </div>
                         </section>
                     </section>
