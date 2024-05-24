@@ -1,0 +1,19 @@
+.login {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+        width: 350px;
+        height: 500px;
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        flex-direction: column;
+    }
+}
