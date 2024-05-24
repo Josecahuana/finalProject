@@ -11,10 +11,10 @@ export const Home = () => {
 
     const images = [
         {
-            original: "./src/assets/components/dataImg/banner/banner.png"
+            original: "./src/assets/img/banner.png"
         },
         {
-            original: "./src/assets/components/dataImg/banner/banner2.png"
+            original: "./src/assets/img/banner2.png"
         }
     ]
 
