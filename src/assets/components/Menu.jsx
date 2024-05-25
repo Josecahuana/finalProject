@@ -2,7 +2,6 @@ import { BarImage } from './BarImage'
 import { Header } from './Header'
 import { Main } from './Main'
 import { useEffect, useState } from "react";
-import { useLocation } from 'react-router-dom';
 import data from './data'
 
 export const Menu = () => {

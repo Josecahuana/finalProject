@@ -21,7 +21,6 @@ export const Home = () => {
     const handleNavigate = () => {
         const dataLocal = state;
         navigate('/Menu', { state: dataLocal });
-        console.log(state);
     }
 
     const images = [
