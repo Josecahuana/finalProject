@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 export const Main = ({ handleInsertCart, filterText, filteredInput }) => {
 
     const [products, setProducts] = useState(sneakers);
+    const [vacio, setVacio] = useState('');
 
     useEffect(() => {
         if (filterText === '') {
@@ -35,6 +36,11 @@ export const Main = ({ handleInsertCart, filterText, filteredInput }) => {
         setProducts(sneakers);
     }
 
+    useEffect(()=>{
+        const vacio = products.length === 0;
+        (vacio) ? setVacio('Producto no encontrado') : setVacio('');
+    }, [vacio])
+
     return (
         <>
             <main className='products__main'>
@@ -59,8 +65,9 @@ export const Main = ({ handleInsertCart, filterText, filteredInput }) => {
                 </section>
                 <section className='products__list'>
                     <section className='product'>
+                        { vacio && <p>{vacio}</p> }
                         {
-                            products.map((sneaker) => {
+                         products.map((sneaker) => {
                                 return (
                                     <div key={sneaker.id} className='product__data'  >
                                         <Link className='link' to={`/Menu/${sneaker.id}/${sneaker.nombre}`} onClick={() => handleChangeShow(true)}>
@@ -75,7 +82,7 @@ export const Main = ({ handleInsertCart, filterText, filteredInput }) => {
                                     </div>
   
                                 )
-                            })
+                            }) 
                         }
 
                     </section>
