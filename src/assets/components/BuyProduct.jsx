@@ -8,28 +8,91 @@ export const BuyProduct = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
 
+  /*validaciones*/
+  const [location, setLocation] = useState('');
+  const [card, setCard] = useState('');
+  const [expiryMonth, setExpiryMonth] = useState('');
+  const [expiryYear, setExpiryYear] = useState('');
+  const [cvv, setCvv] = useState('');
+  const [errors, setErrors] = useState({});
 
-  const location = useLocation();
-  const { state } = location;
+  const locationM = useLocation();
+  const { state } = locationM;
   const navigate = useNavigate();
 
 
+  /*Obtener los datos, id para obtener el precio a calcular*/
   useEffect(() => {
     setCart(state.data);
     setTotal()
   }, [cart])
 
+
+  /**/
   useEffect(() => {
     console.log(cart.map(car => car.id))
   }, [total])
 
+  const validarUbicacion = (ubicacion) => {
+    if (!ubicacion) return "La ubicación no puede estar vacía.";
+    if (ubicacion.length > 100) return "La ubicación es demasiado larga.";
+    if (!/^[a-zA-Z\s,\.]+$/.test(ubicacion)) return "La ubicación contiene caracteres inválidos.";
+    return null;
+  };
+
+  const validarTarjetaCredito = (numero) => {
+    const sanitizedNumber = numero.replace(/\s+/g, '');
+    if (!/^\d{16}$/.test(sanitizedNumber)) return "El número de tarjeta debe tener 16 dígitos.";
+    let sum = 0;
+    for (let i = 0; i < sanitizedNumber.length; i++) {
+      let intVal = parseInt(sanitizedNumber.substr(i, 1));
+      if (i % 2 === 0) {
+        intVal *= 2;
+        if (intVal > 9) intVal = (intVal % 10) + 1;
+      }
+      sum += intVal;
+    }
+    if (sum % 10 !== 0) return "El número de tarjeta no es válido.";
+    return null;
+  };
+
+  const validarFechaVencimiento = (mes, año) => {
+    if (!/^\d{2}$/.test(mes) || !/^\d{2}$/.test(año)) return "Formato de fecha no válido.";
+    const month = parseInt(mes);
+    const year = parseInt(año);
+    if (month < 1 || month > 12) return "Mes de vencimiento no válido.";
+    const currentYear = new Date().getFullYear() % 100;
+    if (year < currentYear || (year === currentYear && month < new Date().getMonth() + 1)) return "La tarjeta está vencida.";
+    return null;
+  };
+
+  const validarCvv = (cvv) => {
+    if (!/^\d{3}$/.test(cvv)) return "El CVV debe tener 3 dígitos.";
+    return null;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const dataLocal = state;
-    navigate('/', { state: dataLocal });
-  }
+    const errors = {};
+    errors.location = validarUbicacion(location);
+    errors.card = validarTarjetaCredito(card);
+    errors.expiryDate = validarFechaVencimiento(expiryMonth, expiryYear);
+    errors.cvv = validarCvv(cvv);
 
+    if (Object.values(errors).some(error => error !== null)) {
+      setErrors(errors);
+      setTimeout(() => {
+        setErrors({});
+      }, 3000)
+    } else {
+      console.log('Formulario válido. Enviando...');
+      const dataLocal = state;
+      navigate('/', { state: dataLocal });
+    }
+  };
+
+
+  console.log(errors);
   return (
     <div className="buy">
       <section className="buy__products">
@@ -89,27 +152,64 @@ export const BuyProduct = () => {
         </div>
         <section>
           <form action='' onSubmit={handleSubmit}>
-            <div>
+            <div style={{ position: 'relative' }}>
               <label htmlFor="location">Agregar Ubicación</label>
-              <input type="text" id='location' />
+              <input
+                type="text"
+                id='location'
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
             </div>
             <div>
               <label htmlFor="card">Agregar número de tarjeta</label>
-              <input type="text" id='card' />
+              <input
+                type="text"
+                id='card'
+                value={card}
+                onChange={(e) => setCard(e.target.value)}
+              />
             </div>
             <div className='dateCard'>
-              <label htmlFor="dateCard">Fecha de vencimineto</label>
-              <input type="number" />
-              <input type="number" />
+              <div>
+                <label htmlFor="dateCard">Fecha de vencimiento</label>
+                <input
+                  type="number"
+                  placeholder="MM"
+                  value={expiryMonth}
+                  onChange={(e) => setExpiryMonth(e.target.value)}
+                />
+                <input
+                  type="number"
+                  placeholder="YY"
+                  value={expiryYear}
+                  onChange={(e) => setExpiryYear(e.target.value)}
+                />
+              </div>
             </div>
             <div>
               <label htmlFor="cvv">CVV</label>
-              <input type="number" id='cvv' />
+              <input
+                type="number"
+                id='cvv'
+                value={cvv}
+                onChange={(e) => setCvv(e.target.value)}
+              />
+
             </div>
             <button type='submit' className='form__buy'>Comprar</button>
           </form>
+
         </section>
       </section>
+      {
+       errors.location || errors.card || errors.expiryDate || errors.cvv ? <div className='error__message'>
+        {errors.location && <p >{errors.location}</p>}
+        {errors.card && <p>{errors.card}</p>}
+        {errors.expiryDate && <p >{errors.expiryDate}</p>}
+        {errors.cvv && <p >{errors.cvv}</p>}
+        </div> : ''
+      }
     </div>
   )
 }

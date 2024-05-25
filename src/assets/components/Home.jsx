@@ -7,7 +7,6 @@ import sliderShoes from '../img/Zapatillas.png'
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { InputSearch } from "./InputSearch";
-import { useState } from "react";
 
 export const Home = () => {
 
