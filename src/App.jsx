@@ -9,21 +9,15 @@ import './App.css'
 
 export const App = () => {
 
-  const [view, setView] = useState(false);
-
   const handleChangeShow = (value) => {
     setView(value);
-}
-
-const handleChangeSetCart = (value) => {
-    handleChangeCart(value);
 }
 
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/Menu' element={<Menu />} />
+        <Route path='/Menu/*' element={<Menu />} />
         <Route path='/Menu/:id/:nombre' element={<SneakerPage handleChangeShow={handleChangeShow} sneakers={sneakers} />} />
         <Route path='/Login' element={<Login/>} />
       </Routes>

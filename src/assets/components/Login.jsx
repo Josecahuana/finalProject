@@ -9,16 +9,43 @@ export const Login = () => {
     const [inputUser, setInputUser] = useState('');
     const [inputEmail, setInputEmail] = useState('');
     const [message, setMessage] = useState('');
-    // const [get, setGet] = useState(false);
     const navigate = useNavigate();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
+
+        const loggedIn = localStorage.getItem('isLoggedIn');
+        if (loggedIn === 'true') {
+            setIsLoggedIn(true);
+        }
+
         const userRegister = localStorage.getItem('users');
 
         if (!userRegister) {
             const initialUsers = [
-                { userName: 'Luis', email: 'luis@gmail.com' },
-                { userName: 'Rocio', email: 'rocio@gmail.com' },
+                {
+                    id: 1,
+                    userName: 'Luis',
+                    email: 'luis@gmail.com',
+                    shopping: [
+                        {
+                            id: 1,
+                            quantity: 2,
+                        },
+                        {
+                            id: 2,
+                            quantity: 3
+                        }
+                    ],
+                    loged: false
+                },
+                {
+                    id: 2,
+                    userName: 'Rocio',
+                    email: 'rocio@gmail.com',
+                    shopping: [],
+                    loged: false
+                },
             ];
 
             localStorage.setItem('users', JSON.stringify(initialUsers));
@@ -30,17 +57,22 @@ export const Login = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        const userExist = user.some(user => user.userName === inputUser && user.email === inputEmail);
+
+        const userExist = user.find(user => user.userName === inputUser && user.email === inputEmail);
+
         if (userExist) {
-            navigate('/', { state: { username: inputUser } });
+            userExist.loged = true;
+            navigate('/', { state: { user: userExist } });
+            setIsLoggedIn(true);
         } else {
-            setGet(false)
             setMessage('Usuario no encontrado');
             setTimeout(() => {
                 setMessage('');
             }, 3000)
         }
     }
+
+    console.log(user);
 
     return (
         <>
