@@ -6,7 +6,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { useState } from 'react';
 import sneakers from './assets/components/data'
 import './App.css'
-import BuyProduct from './assets/components/BuyProduct';
+import {BuyProduct } from './assets/components/BuyProduct';
 
 export const App = () => {
 
