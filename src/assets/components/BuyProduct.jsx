@@ -1,17 +1,24 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './BuyProduct.css'
 export const BuyProduct = () => {
 
-  const location = useLocation();
-  const { state } = location;
+
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+
+
+  const location = useLocation();
+  const { state } = location;
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     setCart(state.data);
     setTotal()
   }, [cart])
+
   useEffect(() => {
     console.log(cart.map(car => car.id))
   }, [total])
@@ -19,6 +26,8 @@ export const BuyProduct = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const dataLocal = state;
+    navigate('/', { state: dataLocal });
   }
 
   return (
@@ -79,7 +88,7 @@ export const BuyProduct = () => {
           </div>
         </div>
         <section>
-          <form onSubmit={handleSubmit} >
+          <form action='' onSubmit={handleSubmit}>
             <div>
               <label htmlFor="location">Agregar Ubicación</label>
               <input type="text" id='location' />
@@ -97,7 +106,6 @@ export const BuyProduct = () => {
               <label htmlFor="cvv">CVV</label>
               <input type="number" id='cvv' />
             </div>
-
             <button type='submit' className='form__buy'>Comprar</button>
           </form>
         </section>

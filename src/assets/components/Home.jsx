@@ -12,10 +12,10 @@ import { useState } from "react";
 export const Home = () => {
 
     const location = useLocation();
-    const { state } = location;
     const navigate = useNavigate();
+    const { state } = location;
 
-    const username = state && state.user.userName ? state.user.userName : 'Iniciar sesión';
+    const username = state?.user?.userName || 'Iniciar sesión';
 
 
     const handleNavigate = () => {
@@ -76,10 +76,10 @@ export const Home = () => {
             <div className="descount__product">
                 <img className="descount__important" src={ropaslider} alt="img  clothes" />
                 {/* <Link to='/Menu' > */}
-                    <img
-                        onClick={handleNavigate}
-                        className="descount__important"
-                        src={sliderShoes} alt="img shoes" />
+                <img
+                    onClick={handleNavigate}
+                    className="descount__important"
+                    src={sliderShoes} alt="img shoes" />
                 {/* </Link> */}
                 <img className="descount__important" src={sliderrefri} alt="img fridge" />
             </div>

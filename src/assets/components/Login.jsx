@@ -13,11 +13,6 @@ export const Login = () => {
 
     useEffect(() => {
 
-        // const loggedIn = localStorage.getItem('isLoggedIn');
-        // if (loggedIn === 'true') {
-        //     setIsLoggedIn(true);
-        // }
-
         const userRegister = localStorage.getItem('users');
 
         if (!userRegister) {
@@ -61,7 +56,6 @@ export const Login = () => {
 
         if (userExist) {
             navigate('/', { state: { user: userExist } });
-            setIsLoggedIn(true);
         } else {
             setMessage('Usuario no encontrado');
             setTimeout(() => {

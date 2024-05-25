@@ -10,10 +10,9 @@ export const Header = ({ cart, handleDeleteCart, handleIncrementCant, handleDecr
 
     const location = useLocation();
     const { state } = location;
-
     const navigate = useNavigate();
 
-    const [cartLocal, setCartLocal] = useState(cart);
+    // const [cartLocal, setCartLocal] = useState(cart);
 
     const username = state?.user?.userName || 'Iniciar sesión';
 
@@ -28,22 +27,22 @@ export const Header = ({ cart, handleDeleteCart, handleIncrementCant, handleDecr
         navigate('/BuyProduct', { state: { data } });
     }
 
-    useEffect(() => {
-        if (username) {
-            try {
-                const shopping = state?.user?.shopping;
-                const productLocalUser = data.filter(producto => {
-                    return shopping.some(item => item.id === producto.id);
-                });
-                setCartLocal(productLocalUser);
-            } catch {
-                console.log('error');
-            }
+    // useEffect(() => {
+    //     if (username) {
+    //         try {
+    //             const shopping = state?.user?.shopping;
+    //             const productLocalUser = data.filter(producto => {
+    //                 return shopping.some(item => item.id === producto.id);
+    //             });
+    //             setCartLocal(productLocalUser);
+    //         } catch {
+    //             console.log('error');
+    //         }
 
-        } else {
-            console.log('wow');
-        }
-    }, [])
+    //     } else {
+    //         console.log('wow');
+    //     }
+    // }, [])
 
 
     const handleNavigateHome = () => {
