@@ -10,14 +10,13 @@ export const Login = () => {
     const [inputEmail, setInputEmail] = useState('');
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
 
-        const loggedIn = localStorage.getItem('isLoggedIn');
-        if (loggedIn === 'true') {
-            setIsLoggedIn(true);
-        }
+        // const loggedIn = localStorage.getItem('isLoggedIn');
+        // if (loggedIn === 'true') {
+        //     setIsLoggedIn(true);
+        // }
 
         const userRegister = localStorage.getItem('users');
 
@@ -61,7 +60,6 @@ export const Login = () => {
         const userExist = user.find(user => user.userName === inputUser && user.email === inputEmail);
 
         if (userExist) {
-            userExist.loged = true;
             navigate('/', { state: { user: userExist } });
             setIsLoggedIn(true);
         } else {

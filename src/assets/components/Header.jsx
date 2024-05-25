@@ -33,7 +33,7 @@ export const Header = ({ cart, handleDeleteCart, handleIncrementCant, handleDecr
         } else {
             console.log('wow');
         }
-    }, [cartLocal])
+    }, [])
 
     return (
         <>
