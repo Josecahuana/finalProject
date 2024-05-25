@@ -9,7 +9,7 @@ Group:
 | Rocio | Ponce Guerra Rocio del Valle |
 
 ### Home
-![Imgur](https://imgur.com/jVjNT1g)
+[Imgur](https://imgur.com/jVjNT1g)
 
 ### Login
 [Imgur](https://imgur.com/OxW4VmP)
