@@ -73,8 +73,6 @@ export const Main = ({ handleInsertCart, filterText, filteredInput }) => {
                                         </Link>
                                             <button onClick={() => handleChangeSetCart(sneaker.id)} >Agregar al carrito</button>
 
-                                        <button onClick={() => handleChangeSetCart(sneaker.id)} >Agregar a carrito</button>
-
                                     </div>
   
                                 )
