@@ -17,7 +17,6 @@ export const Main = ({ handleInsertCart, filterText, filteredInput }) => {
         }
     }, [filterText, filteredInput]);
 
-
     const handleChangeShow = (value) => {
         setView(value);
     }
