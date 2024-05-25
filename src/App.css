@@ -67,6 +67,7 @@
         display: flex;
         justify-content: center;
         padding: 0 50px;
+        cursor: pointer;
 
         img {
             min-width: 100%;
@@ -127,10 +128,7 @@
 
 }
 
-/**/
-
-
-
+/*SESION CART*/
 .sesion__cart {
     position: relative;
     display: flex;
@@ -333,6 +331,7 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 10px;
+    padding: 0 5px;
 
     button {
         padding: 5px 20px;

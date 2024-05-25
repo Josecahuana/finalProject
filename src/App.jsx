@@ -3,7 +3,6 @@ import { Menu } from './assets/components/Menu';
 import { SneakerPage } from './assets/components/SneakerPage';
 import { Login } from './assets/components/Login';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
-import { useState } from 'react';
 import sneakers from './assets/components/data'
 import './App.css'
 import {BuyProduct } from './assets/components/BuyProduct';

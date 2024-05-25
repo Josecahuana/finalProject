@@ -8,54 +8,61 @@ import data from './data';
 
 export const Header = ({ cart, handleDeleteCart, handleIncrementCant, handleDecrementCant, filterText, handleFilterChange }) => {
 
-    // const location = useLocation();
-    // const { state } = location;
+    const location = useLocation();
+    const { state } = location;
 
     const navigate = useNavigate();
 
-    // const [cartLocal, setCartLocal] = useState(cart);
+    const [cartLocal, setCartLocal] = useState(cart);
 
-    // const username = state?.user?.userName || 'Iniciar sesión';
+    const username = state?.user?.userName || 'Iniciar sesión';
 
     const handleClickDelete = (id) => {
         handleDeleteCart(id);
     }
 
 
-    const handleBuy = () =>{
+    const handleBuy = () => {
         const data = cart;
         console.log(data);
         navigate('/BuyProduct', { state: { data } });
     }
 
-    // useEffect(() => {
-    //     if (username) {
-    //         try {
-    //             const shopping = state?.user?.shopping;
-    //             const productLocalUser = data.filter(producto => {
-    //                 return shopping.some(item => item.id === producto.id);
-    //             });
-    //             setCartLocal(productLocalUser);
-    //         } catch {
-    //             console.log('error');
-    //         }
+    useEffect(() => {
+        if (username) {
+            try {
+                const shopping = state?.user?.shopping;
+                const productLocalUser = data.filter(producto => {
+                    return shopping.some(item => item.id === producto.id);
+                });
+                setCartLocal(productLocalUser);
+            } catch {
+                console.log('error');
+            }
 
-    //     } else {
-    //         console.log('wow');
-    //     }
-    // }, [])
+        } else {
+            console.log('wow');
+        }
+    }, [])
+
+
+    const handleNavigateHome = () => {
+        const dataLocal = state;
+        navigate('/', { state: dataLocal });
+    }
+
     return (
         <>
             <header className='menu__header'>
-                <Link to='/' className='menu__option' >
-                    <img src={faketitle} alt="img fakeshop" />
-                </Link>
+                <div className="menu__option">
+                    <img src={faketitle} alt="img fakeshop" onClick={handleNavigateHome} />
+                </div>
                 <InputSearch filterText={filterText} handleFilterChange={handleFilterChange} />
                 <div className="menu__sesion">
-                    {/* {username === 'Iniciar sesión' ?
+                    {username === 'Iniciar sesión' ?
                         <p>Hola, <Link to="/Login"> <b>{username}</b> </Link></p> :
                         <p>Hola <b>{username}</b></p>
-                    } */}
+                    }
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" /></svg>
                     </span>
@@ -91,7 +98,7 @@ export const Header = ({ cart, handleDeleteCart, handleIncrementCant, handleDecr
                                                 })
                                             }
                                             <button className="shops__butonAll" onClick={handleBuy} >
-                                             Ir a comprar
+                                                Ir a comprar
                                             </button>
                                         </div>
                                     )

@@ -20,7 +20,7 @@
     height: 600px;
     flex-direction: column;
     gap: 20px;
-    overflow-y: scroll;
+    overflow-y: auto;
 
 }
 
